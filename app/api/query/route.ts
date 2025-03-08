@@ -6,11 +6,11 @@ export async function GET() {
     const client = await db.connect();
 
     const result = await client.sql`
-      SELECT invoices.amount, customers.name
+      SELECT customers.name, COUNT(*)
       FROM invoices
       JOIN customers ON invoices.customer_id = customers.id
-      WHERE invoices.amount = 666;
-    `;
+      GROUP BY customers.name;
+`;
     // const result = await client.sql`
     //     SELECT DISTINCT ON (customers.id) invoices.amount, customers.name
     //     FROM invoices

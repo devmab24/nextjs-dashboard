@@ -139,8 +139,8 @@ export async function fetchInvoicesPages(query: string) {
 
     const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
     return totalPages;
-  } catch (error) {
-    console.error('Database Error:', error);
+  } catch (error: any) {
+    console.error('Database Error:', error.message, error.stack);
     throw new Error('Failed to fetch total number of invoices.');
   }
 }
@@ -157,6 +157,10 @@ export async function fetchInvoiceById(id: string) {
       WHERE invoices.id = ${id};
     `;
 
+    if (!data.rows.length) {
+      return null; // Return null if no invoice is found
+    }
+
     const invoice = data.rows.map((invoice) => ({
       ...invoice,
       // Convert amount from cents to dollars
@@ -166,6 +170,7 @@ export async function fetchInvoiceById(id: string) {
     return invoice[0];
   } catch (error) {
     console.error('Database Error:', error);
+    return null; // Return null instead of undefined on error
   }
 }
 

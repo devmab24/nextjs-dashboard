@@ -9,9 +9,9 @@ This is a fully functional dashboard application built using the Next.js App Rou
 * **Language**: TypeScript
 * **Styling**: Tailwind CSS
 * **Routing**: App Router with nested layouts
-* **Authentication**: NextAuth.js or custom JWT (depending on course section)
+* **Authentication**: NextAuth.js
 * **State & Data**: React Server Components (RSC), `fetch` with caching, loading & error UI
-* **Deployment**: Vercel (recommended)
+* **Deployment**: Vercel 
 
 ---
 

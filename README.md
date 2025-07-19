@@ -13,9 +13,6 @@ This is a fully functional dashboard application built using the Next.js App Rou
 * **State & Data**: React Server Components (RSC), `fetch` with caching, loading & error UI
 * **Deployment**: Vercel 
 
----
-
-Let me know if you'd like a README section, deployment guide, or feature breakdown!
 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
 
